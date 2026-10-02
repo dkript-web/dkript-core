@@ -1,0 +1,76 @@
+/* ==========================================================================
+   RosenCharts - D3.js Visual Components Styles
+   ========================================================================== */
+
+.rosen-chart-container {
+    position: relative;
+    width: 100%;
+    min-height: 260px;
+}
+
+.rosen-tooltip {
+    position: absolute;
+    text-align: center;
+    padding: 8px 12px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #ffffff;
+    background: #071026;
+    border: 1px solid rgba(0, 212, 255, 0.4);
+    border-radius: 8px;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.15s ease-in-out;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3), 0 0 10px rgba(0, 212, 255, 0.25);
+    z-index: 50;
+}
+
+.rosen-empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 240px;
+    padding: 24px;
+    text-align: center;
+    border: 2px dashed rgba(0, 98, 245, 0.25);
+    border-radius: 16px;
+    background: #f0f4f9;
+}
+
+.rosen-empty-state-icon {
+    font-size: 38px;
+    color: #0062f5;
+    margin-bottom: 12px;
+    filter: drop-shadow(0 2px 8px rgba(0, 98, 245, 0.25));
+}
+
+.rosen-empty-state-text {
+    font-size: 13px;
+    font-weight: 600;
+    color: #475569;
+}
+
+/* Donut legend */
+.rosen-legend {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 16px;
+}
+
+.rosen-legend-item {
+    display: inline-flex;
+    align-items: center;
+    font-size: 13px;
+    color: #475569;
+    font-weight: 500;
+}
+
+.rosen-legend-bullet {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 6px;
+}

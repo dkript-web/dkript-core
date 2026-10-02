@@ -1,0 +1,1511 @@
+/* ==========================================================================
+   Dkript Inc. Enterprise Starter Kit - Custom Design System & Spacing Rules
+   Paleta Corporativa Dkript Inc. & Drypt ("The Digital Alchemist")
+   Soporte Multi-Dispositivo Nativo: Apple, Samsung, Xiaomi, PC
+   ========================================================================== */
+
+:root {
+    /* Dkript Core Obsidian & Midnight Dark */
+    --dk-navy-950: #030712;
+    --dk-navy-900: #071026;
+    --dk-navy-850: #091432;
+    --dk-navy-800: #0b1739;
+    --dk-navy-700: #112356;
+    --dk-navy-600: #173682;
+
+    /* Dkript Cobalt Royal Primary */
+    --dk-blue-primary: #0062f5;
+    --dk-blue-hover: #004ecc;
+    --dk-blue-active: #003db3;
+
+    /* Drypt Alchemist Glow & Energy */
+    --dk-cyan-glow: #00d4ff;
+    --dk-cyan-subtle: rgba(0, 212, 255, 0.12);
+    --dk-cyan-border: rgba(0, 212, 255, 0.35);
+
+    /* Alchemist Violet Secondary */
+    --dk-violet: #7928ca;
+    --dk-violet-subtle: rgba(121, 40, 202, 0.12);
+
+    /* Light Theme Executive Canvas */
+    --dk-canvas: #f0f4f9;
+    --dk-card-bg: #ffffff;
+    --dk-border-light: #e2e8f0;
+    --dk-border-subtle: #edf2f7;
+    --dk-text-main: #0f172a;
+    --dk-text-muted: #64748b;
+}
+
+/* Safe Area Insets para dispositivos con Notch / Dynamic Island (Apple iPhone, Samsung Galaxy) */
+.safe-area-body {
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-right: env(safe-area-inset-right, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+    padding-left: env(safe-area-inset-left, 0px);
+    background-color: var(--dk-canvas);
+}
+
+/* ==========================================================================
+   SISTEMA DE RESPONSIVIDAD NATIVA DEL SIDEBAR (Apple, Samsung, Xiaomi, PC)
+   ========================================================================== */
+
+/* En pantallas de escritorio (>= 1024px) */
+@media (min-width: 1024px) {
+    #mainSidebar {
+        position: sticky !important;
+        top: 0 !important;
+        height: 100vh !important;
+        max-height: 100vh !important;
+        width: 16rem !important; /* 256px */
+        display: flex !important;
+        flex-direction: column !important;
+        flex-shrink: 0 !important;
+        z-index: 30 !important;
+        transform: none !important;
+        box-shadow: none !important;
+    }
+    #btnToggleSidebar {
+        display: none !important;
+    }
+    #sidebarCloseBtn {
+        display: none !important;
+    }
+    #sidebarBackdrop {
+        display: none !important;
+    }
+}
+
+/* En tablets y smartphones (< 1024px) */
+@media (max-width: 1023.98px) {
+    #mainSidebar {
+        position: fixed !important;
+        top: 0 !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        height: 100vh !important;
+        height: 100dvh !important;
+        max-height: 100dvh !important;
+        width: 280px !important;
+        max-width: 85vw !important;
+        z-index: 50 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        transform: translateX(-100%) !important;
+        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7) !important;
+    }
+
+    /* Cuando se abre el drawer en móvil */
+    #mainSidebar.sidebar-mobile-active {
+        transform: translateX(0) !important;
+    }
+
+    #btnToggleSidebar {
+        display: inline-flex !important;
+    }
+
+    #sidebarCloseBtn {
+        display: inline-flex !important;
+    }
+
+    #sidebarBackdrop {
+        display: none;
+    }
+
+    #sidebarBackdrop.backdrop-mobile-active {
+        display: block !important;
+        opacity: 1 !important;
+    }
+
+    /* Ajuste de grids en tablets */
+    .stats-panel-block {
+        grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
+    }
+}
+
+/* Scrollbar elegante Cyber-Glass para navegación lateral */
+.custom-scrollbar::-webkit-scrollbar {
+    width: 4px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: rgba(0, 209, 255, 0.25);
+    border-radius: 9999px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 209, 255, 0.55);
+}
+.custom-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(0, 209, 255, 0.25) transparent;
+}
+
+/* En Smartphones (< 640px) */
+@media (max-width: 639.98px) {
+    .section-spacer,
+    .main-section-block,
+    .content-section {
+        margin-bottom: 30px !important;
+    }
+
+    .stats-panel-block,
+    .analytics-section {
+        margin-top: 15px !important;
+        margin-bottom: 20px !important;
+    }
+
+    .main-section-block {
+        grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
+    }
+
+    .page-header-toolbar {
+        flex-direction: column !important;
+        align-items: stretch !important;
+    }
+
+    .page-header-toolbar > div {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    .page-header-toolbar .flex-wrap {
+        justify-content: stretch !important;
+    }
+
+    .page-header-toolbar .flex-wrap > * {
+        flex: 1 1 auto !important;
+    }
+
+    .table-card table {
+        min-width: 600px;
+    }
+}
+
+/* Regla Estricta: Separación de Secciones Principales (Desktop / Laptop) */
+.section-spacer,
+.main-section-block,
+.content-section {
+    margin-bottom: 55px !important;
+}
+
+/* Regla Estricta: Separación de Paneles Estadísticos */
+.stats-panel-block,
+.analytics-section {
+    margin-top: 25px !important;
+    margin-bottom: 35px !important;
+}
+
+/* Floating Label Inputs con Enfoque Corporativo */
+.floating-input-group {
+    position: relative;
+}
+
+.floating-input-group input,
+.floating-input-group select,
+.floating-input-group textarea {
+    border-color: #cbd5e1;
+    transition: all 0.2s ease-in-out;
+}
+
+.floating-input-group input:focus,
+.floating-input-group select:focus,
+.floating-input-group textarea:focus {
+    border-color: var(--dk-blue-primary) !important;
+    box-shadow: 0 0 0 3px rgba(0, 98, 245, 0.18), 0 0 12px rgba(0, 212, 255, 0.25) !important;
+    outline: none;
+}
+
+/* iOS Style Toggle Switch con Touch Target Ergonómico (Apple HIG 44px) */
+.role-toggle-switch {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    min-height: 32px;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.role-toggle-switch input {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.role-toggle-track {
+    width: 44px;
+    height: 24px;
+    background-color: #cbd5e1;
+    border-radius: 9999px;
+    transition: all 0.25s ease;
+    position: relative;
+    flex-shrink: 0;
+}
+
+.role-toggle-switch input:checked + .role-toggle-track {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    box-shadow: 0 0 10px rgba(16, 185, 129, 0.35);
+}
+
+.role-toggle-thumb {
+    width: 20px;
+    height: 20px;
+    background-color: #ffffff;
+    border-radius: 9999px;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.role-toggle-switch input:checked + .role-toggle-track .role-toggle-thumb {
+    transform: translateX(20px);
+}
+
+.role-toggle-switch input:disabled + .role-toggle-track {
+    opacity: 0.45;
+    cursor: not-allowed;
+}
+
+/* Badges de Permisos por Posición (Estándar Inviolable Dkript) */
+.badge-pos-1 {
+    background-color: #ecfdf5;
+    color: #047857;
+    border: 1px solid #a7f3d0;
+}
+
+.badge-pos-2 {
+    background-color: #fffbeb;
+    color: #b45309;
+    border: 1px solid #fde68a;
+}
+
+.badge-pos-3 {
+    background-color: #fff1f2;
+    color: #be123c;
+    border: 1px solid #fecdd3;
+}
+
+.badge-pos-4 {
+    background-color: #eff6ff;
+    color: #0369a1;
+    border: 1px solid #bae6fd;
+}
+
+.badge-pos-5 {
+    background-color: #faf5ff;
+    color: #6b21a8;
+    border: 1px solid #e9d5ff;
+}
+
+/* Modal Backdrop Blur & Transitions */
+.modal-backdrop-blur {
+    background-color: rgba(7, 16, 38, 0.75);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    transition: opacity 0.25s ease-out;
+}
+
+.modal-content-transition {
+    transition: transform 0.25s ease-out, opacity 0.25s ease-out;
+}
+
+/* Catalog Table Styling & Smooth Touch Scrolling */
+.table-card {
+    background-color: #ffffff;
+    border-radius: 1.25rem;
+    box-shadow: 0 4px 20px -2px rgba(7, 16, 38, 0.05), 0 2px 6px -1px rgba(7, 16, 38, 0.02);
+    border: 1px solid #e2e8f0;
+    overflow: hidden;
+}
+
+.overflow-x-auto {
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: #cbd5e1 #f8fafc;
+}
+
+.overflow-x-auto::-webkit-scrollbar {
+    height: 6px;
+}
+
+.overflow-x-auto::-webkit-scrollbar-track {
+    background: #f8fafc;
+}
+
+.overflow-x-auto::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 9999px;
+}
+
+/* ==========================================================================
+   DKRIPT & DRYPT CORPORATE UI COMPONENTS & GRAPHICS
+   ========================================================================== */
+
+/* Botones Corporativos */
+.btn-dkript-primary {
+    background: linear-gradient(135deg, #0062f5 0%, #0099ff 100%);
+    color: #ffffff !important;
+    font-weight: 700;
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 14px 0 rgba(0, 98, 245, 0.35);
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.btn-dkript-primary:hover {
+    background: linear-gradient(135deg, #0052cc 0%, #0088e6 100%);
+    box-shadow: 0 6px 20px 0 rgba(0, 98, 245, 0.45), 0 0 15px rgba(0, 212, 255, 0.25);
+    transform: translateY(-1px);
+}
+
+.btn-dkript-primary:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px 0 rgba(0, 98, 245, 0.3);
+}
+
+.btn-dkript-dark {
+    background: #071026;
+    color: #f1f5f9 !important;
+    border: 1px solid #112356;
+    border-radius: 0.75rem;
+    transition: all 0.2s ease;
+}
+
+.btn-dkript-dark:hover {
+    background: #0b1739;
+    border-color: #00d4ff;
+    color: #ffffff !important;
+    box-shadow: 0 0 15px rgba(0, 212, 255, 0.2);
+}
+
+.btn-dkript-outline {
+    background: transparent;
+    color: #0062f5 !important;
+    border: 1.5px solid #0062f5;
+    border-radius: 0.75rem;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.btn-dkript-outline:hover {
+    background: rgba(0, 98, 245, 0.06);
+    border-color: #004ecc;
+    color: #004ecc !important;
+}
+
+/* Iconos de Squircle con Micro-Degradados Corporativos (Para Métricas & Secciones) */
+.icon-squircle-cobalt {
+    background: linear-gradient(135deg, rgba(0, 98, 245, 0.12) 0%, rgba(0, 212, 255, 0.15) 100%);
+    border: 1px solid rgba(0, 212, 255, 0.3);
+    color: #0062f5;
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0, 98, 245, 0.1);
+}
+
+.icon-squircle-violet {
+    background: linear-gradient(135deg, rgba(121, 40, 202, 0.12) 0%, rgba(0, 98, 245, 0.15) 100%);
+    border: 1px solid rgba(121, 40, 202, 0.3);
+    color: #7928ca;
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(121, 40, 202, 0.1);
+}
+
+.icon-squircle-emerald {
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.12) 0%, rgba(0, 212, 255, 0.15) 100%);
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    color: #059669;
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.1);
+}
+
+.icon-squircle-amber {
+    background: linear-gradient(135deg, rgba(245, 158, 11, 0.12) 0%, rgba(234, 88, 12, 0.15) 100%);
+    border: 1px solid rgba(245, 158, 11, 0.3);
+    color: #d97706;
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(245, 158, 11, 0.1);
+}
+
+/* Tarjetas Estadísticas con Elevación Suave y Resplandor de Borde */
+.stat-card-elevate {
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid #e2e8f0;
+}
+
+.stat-card-elevate:hover {
+    transform: translateY(-2px);
+    border-color: rgba(0, 212, 255, 0.5) !important;
+    box-shadow: 0 12px 24px -4px rgba(7, 16, 38, 0.08), 0 0 15px rgba(0, 212, 255, 0.12);
+}
+
+/* Tipografía con Degradados de Marca */
+.text-gradient-dkript {
+    background: linear-gradient(135deg, #0062f5 0%, #00d4ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-drypt {
+    background: linear-gradient(135deg, #00d4ff 0%, #7928ca 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Badges y Píldoras Corporativas */
+.badge-dkript-cyan {
+    background: rgba(0, 212, 255, 0.1);
+    color: #0284c7;
+    border: 1px solid rgba(0, 212, 255, 0.3);
+}
+
+.badge-dkript-cobalt {
+    background: rgba(0, 98, 245, 0.1);
+    color: #0062f5;
+    border: 1px solid rgba(0, 98, 245, 0.3);
+}
+
+/* ==========================================================================
+   ARQUITECTURA DE ESTILOS VISUALES UNIVERSALES PARA VENTANAS MODALES
+   (Corporate Executive, Drypt Cyber-Glass, Classic Studio Window, Neumorphic Clean)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   ESTILO 1: DKRIPT EXECUTIVE (CORPORATIVO INMACULADO Y COBALTO)
+   -------------------------------------------------------------------------- */
+body[data-modal-style="corporate"] .modal-backdrop-blur {
+    background: rgba(7, 16, 38, 0.70) !important;
+    backdrop-filter: blur(8px) !important;
+    -webkit-backdrop-filter: blur(8px) !important;
+}
+
+body[data-modal-style="corporate"] .modal-card {
+    background-color: #ffffff !important;
+    border: 1px solid #e2e8f0 !important;
+    box-shadow: 0 25px 50px -12px rgba(7, 16, 38, 0.25) !important;
+    border-radius: 1.25rem !important;
+    color: #1e293b !important;
+}
+
+body[data-modal-style="corporate"] .modal-window-dots {
+    display: none !important;
+}
+
+/* --------------------------------------------------------------------------
+   ESTILO 2: DRYPT CYBER-GLASS (GLASSMORPHISM TRASLÚCIDO Y NEÓN CYAN)
+   -------------------------------------------------------------------------- */
+body[data-modal-style="glassmorphism"] .modal-backdrop-blur,
+.glass-modal-backdrop {
+    background: rgba(3, 7, 18, 0.50) !important;
+    backdrop-filter: blur(14px) saturate(190%) !important;
+    -webkit-backdrop-filter: blur(14px) saturate(190%) !important;
+}
+
+body[data-modal-style="glassmorphism"] .modal-card,
+.glass-modal-card {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, rgba(7, 16, 38, 0.75) 100%) !important;
+    backdrop-filter: blur(28px) saturate(210%) contrast(95%) !important;
+    -webkit-backdrop-filter: blur(28px) saturate(210%) contrast(95%) !important;
+    border: 1px solid rgba(0, 212, 255, 0.45) !important;
+    box-shadow: 
+        0 25px 50px -12px rgba(0, 0, 0, 0.65),
+        0 0 35px rgba(0, 212, 255, 0.25),
+        inset 0 1px 1px 0 rgba(255, 255, 255, 0.35) !important;
+    border-radius: 1.5rem !important;
+    color: #ffffff !important;
+}
+
+body[data-modal-style="glassmorphism"] .modal-card .modal-header-bar,
+body[data-modal-style="glassmorphism"] .glass-modal-card .modal-header-bar {
+    background: rgba(7, 16, 38, 0.70) !important;
+    backdrop-filter: blur(16px) !important;
+    -webkit-backdrop-filter: blur(16px) !important;
+    border-bottom: 1px solid rgba(0, 212, 255, 0.30) !important;
+}
+
+body[data-modal-style="glassmorphism"] .modal-card h3,
+body[data-modal-style="glassmorphism"] .modal-card .text-slate-900,
+body[data-modal-style="glassmorphism"] .modal-card .text-slate-800,
+body[data-modal-style="glassmorphism"] .glass-modal-title {
+    color: #ffffff !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7) !important;
+}
+
+body[data-modal-style="glassmorphism"] .modal-card label,
+body[data-modal-style="glassmorphism"] .modal-card .text-slate-600,
+body[data-modal-style="glassmorphism"] .modal-card .text-slate-700 {
+    color: #bae6fd !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5) !important;
+}
+
+body[data-modal-style="glassmorphism"] .modal-card input:not([type="checkbox"]):not([type="radio"]),
+body[data-modal-style="glassmorphism"] .modal-card select,
+body[data-modal-style="glassmorphism"] .modal-card textarea {
+    background-color: rgba(11, 23, 57, 0.75) !important;
+    color: #ffffff !important;
+    border: 1px solid rgba(0, 212, 255, 0.35) !important;
+    backdrop-filter: blur(8px) !important;
+    -webkit-backdrop-filter: blur(8px) !important;
+}
+
+body[data-modal-style="glassmorphism"] .modal-card input:focus,
+body[data-modal-style="glassmorphism"] .modal-card select:focus,
+body[data-modal-style="glassmorphism"] .modal-card textarea:focus {
+    border-color: #00d4ff !important;
+    box-shadow: 0 0 15px rgba(0, 212, 255, 0.35) !important;
+}
+
+body[data-modal-style="glassmorphism"] .modal-card select option {
+    background-color: #071026 !important;
+    color: #ffffff !important;
+}
+
+body[data-modal-style="glassmorphism"] .modal-card .bg-slate-50,
+body[data-modal-style="glassmorphism"] .modal-card .bg-slate-50\/60,
+body[data-modal-style="glassmorphism"] .modal-card .bg-slate-100,
+body[data-modal-style="glassmorphism"] .modal-card .bg-blue-50\/50,
+body[data-modal-style="glassmorphism"] .modal-card .bg-blue-50 {
+    background-color: rgba(7, 16, 38, 0.50) !important;
+    border-color: rgba(0, 212, 255, 0.20) !important;
+}
+
+body[data-modal-style="glassmorphism"] .modal-card .bg-blue-100 {
+    background-color: rgba(0, 212, 255, 0.15) !important;
+    color: #00d4ff !important;
+}
+
+body[data-modal-style="glassmorphism"] .modal-card form > div:last-child,
+body[data-modal-style="glassmorphism"] .modal-card > div:last-child,
+.glass-modal-footer {
+    background: rgba(7, 16, 38, 0.60) !important;
+    backdrop-filter: blur(16px) !important;
+    -webkit-backdrop-filter: blur(16px) !important;
+    border-top: 1px solid rgba(0, 212, 255, 0.25) !important;
+}
+
+body[data-modal-style="glassmorphism"] .modal-card button[type="button"]:not(.btn-dkript-primary):not([class*="bg-"]):not([id*="window"]) {
+    background-color: rgba(11, 23, 57, 0.6) !important;
+    border: 1px solid rgba(0, 212, 255, 0.3) !important;
+    color: #bae6fd !important;
+}
+
+body[data-modal-style="glassmorphism"] .modal-card button[type="button"]:not(.btn-dkript-primary):hover {
+    background-color: rgba(11, 23, 57, 0.9) !important;
+    color: #ffffff !important;
+}
+
+body[data-modal-style="glassmorphism"] .modal-window-dots {
+    display: none !important;
+}
+
+/* --------------------------------------------------------------------------
+   ESTILO 3: CLASSIC STUDIO WINDOW (VENTANA OS DE ESCRITORIO CON SEMÁFORO)
+   -------------------------------------------------------------------------- */
+body[data-modal-style="window"] .modal-backdrop-blur {
+    background: rgba(2, 6, 23, 0.80) !important;
+    backdrop-filter: blur(6px) !important;
+    -webkit-backdrop-filter: blur(6px) !important;
+}
+
+body[data-modal-style="window"] .modal-card {
+    background-color: #0b1329 !important;
+    border: 2px solid #1e293b !important;
+    box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.85) !important;
+    border-radius: 1rem !important;
+    color: #e2e8f0 !important;
+}
+
+body[data-modal-style="window"] .modal-card .modal-header-bar {
+    background-color: #071026 !important;
+    border-bottom: 1px solid #1e293b !important;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace !important;
+}
+
+body[data-modal-style="window"] .modal-window-dots {
+    display: flex !important;
+}
+
+body[data-modal-style="window"] .modal-card h3,
+body[data-modal-style="window"] .modal-card .text-slate-900,
+body[data-modal-style="window"] .modal-card .text-slate-800 {
+    color: #ffffff !important;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace !important;
+}
+
+body[data-modal-style="window"] .modal-card label,
+body[data-modal-style="window"] .modal-card .text-slate-600,
+body[data-modal-style="window"] .modal-card .text-slate-700 {
+    color: #94a3b8 !important;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace !important;
+}
+
+body[data-modal-style="window"] .modal-card input:not([type="checkbox"]):not([type="radio"]),
+body[data-modal-style="window"] .modal-card select,
+body[data-modal-style="window"] .modal-card textarea {
+    background-color: #071026 !important;
+    color: #f8fafc !important;
+    border: 1px solid #334155 !important;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace !important;
+}
+
+body[data-modal-style="window"] .modal-card input:focus,
+body[data-modal-style="window"] .modal-card select:focus,
+body[data-modal-style="window"] .modal-card textarea:focus {
+    border-color: #0062f5 !important;
+    box-shadow: 0 0 0 2px rgba(0, 98, 245, 0.25) !important;
+}
+
+body[data-modal-style="window"] .modal-card select option {
+    background-color: #071026 !important;
+    color: #f8fafc !important;
+}
+
+body[data-modal-style="window"] .modal-card .bg-slate-50,
+body[data-modal-style="window"] .modal-card .bg-slate-50\/60,
+body[data-modal-style="window"] .modal-card .bg-slate-100,
+body[data-modal-style="window"] .modal-card .bg-blue-50\/50,
+body[data-modal-style="window"] .modal-card .bg-blue-50 {
+    background-color: #071026 !important;
+    border-color: #1e293b !important;
+}
+
+body[data-modal-style="window"] .modal-card .bg-blue-100 {
+    background-color: rgba(255, 255, 255, 0.10) !important;
+    color: #93c5fd !important;
+}
+
+body[data-modal-style="window"] .modal-card form > div:last-child,
+body[data-modal-style="window"] .modal-card > div:last-child {
+    background-color: #071026 !important;
+    border-top: 1px solid #1e293b !important;
+}
+
+body[data-modal-style="window"] .modal-card button[type="button"]:not(.btn-dkript-primary):not([class*="bg-"]):not([id*="window"]) {
+    background-color: #1e293b !important;
+    border: 1px solid #334155 !important;
+    color: #cbd5e1 !important;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace !important;
+}
+
+body[data-modal-style="window"] .modal-card button[type="button"]:not(.btn-dkript-primary):hover {
+    background-color: #334155 !important;
+    color: #ffffff !important;
+}
+
+/* --------------------------------------------------------------------------
+   ESTILO 4: NEUMORPHIC CLEAN (RELIEVE TÁCTIL SUAVE Y SOMBRAS BICROMÁTICAS)
+   -------------------------------------------------------------------------- */
+body[data-modal-style="minimal"] .modal-backdrop-blur {
+    background: rgba(15, 23, 42, 0.35) !important;
+    backdrop-filter: blur(4px) !important;
+    -webkit-backdrop-filter: blur(4px) !important;
+}
+
+body[data-modal-style="minimal"] .modal-card {
+    background-color: #f0f4f9 !important;
+    border: 1px solid rgba(255, 255, 255, 0.85) !important;
+    box-shadow: 14px 14px 35px #cfd7e3, -14px -14px 35px #ffffff !important;
+    border-radius: 1.5rem !important;
+    color: #1e293b !important;
+}
+
+body[data-modal-style="minimal"] .modal-card .modal-header-bar {
+    background-color: #e9eef5 !important;
+    border-bottom: 1px solid #dbe2ec !important;
+}
+
+body[data-modal-style="minimal"] .modal-card h3,
+body[data-modal-style="minimal"] .modal-card .text-slate-900,
+body[data-modal-style="minimal"] .modal-card .text-slate-800 {
+    color: #0f172a !important;
+    text-shadow: none !important;
+}
+
+body[data-modal-style="minimal"] .modal-card label,
+body[data-modal-style="minimal"] .modal-card .text-slate-600,
+body[data-modal-style="minimal"] .modal-card .text-slate-700 {
+    color: #475569 !important;
+}
+
+body[data-modal-style="minimal"] .modal-card input:not([type="checkbox"]):not([type="radio"]),
+body[data-modal-style="minimal"] .modal-card select,
+body[data-modal-style="minimal"] .modal-card textarea {
+    background-color: #f0f4f9 !important;
+    color: #0f172a !important;
+    border: 1px solid rgba(255, 255, 255, 0.8) !important;
+    box-shadow: inset 3px 3px 6px #d1d9e6, inset -3px -3px 6px #ffffff !important;
+}
+
+body[data-modal-style="minimal"] .modal-card input:focus,
+body[data-modal-style="minimal"] .modal-card select:focus,
+body[data-modal-style="minimal"] .modal-card textarea:focus {
+    border-color: #0062f5 !important;
+    box-shadow: inset 2px 2px 4px #d1d9e6, inset -2px -2px 4px #ffffff, 0 0 0 2px rgba(0, 98, 245, 0.2) !important;
+}
+
+body[data-modal-style="minimal"] .modal-card select option {
+    background-color: #f0f4f9 !important;
+    color: #0f172a !important;
+}
+
+body[data-modal-style="minimal"] .modal-card .bg-slate-50,
+body[data-modal-style="minimal"] .modal-card .bg-slate-50\/60,
+body[data-modal-style="minimal"] .modal-card .bg-slate-100,
+body[data-modal-style="minimal"] .modal-card .bg-blue-50\/50,
+body[data-modal-style="minimal"] .modal-card .bg-blue-50 {
+    background-color: #e9eef5 !important;
+    border-color: #dbe2ec !important;
+    box-shadow: inset 2px 2px 5px #d1d9e6, inset -2px -2px 5px #ffffff !important;
+}
+
+body[data-modal-style="minimal"] .modal-card form > div:last-child,
+body[data-modal-style="minimal"] .modal-card > div:last-child {
+    background-color: #edf2f8 !important;
+    border-top: 1px solid #dbe2ec !important;
+}
+
+body[data-modal-style="minimal"] .modal-card button[type="button"]:not(.btn-dkript-primary):not([class*="bg-"]):not([id*="window"]) {
+    background-color: #f0f4f9 !important;
+    border: 1px solid rgba(255, 255, 255, 0.8) !important;
+    box-shadow: 3px 3px 8px #d1d9e6, -3px -3px 8px #ffffff !important;
+    color: #475569 !important;
+}
+
+body[data-modal-style="minimal"] .modal-card button[type="button"]:not(.btn-dkript-primary):hover {
+    box-shadow: inset 2px 2px 4px #d1d9e6, inset -2px -2px 4px #ffffff !important;
+    color: #0f172a !important;
+}
+
+body[data-modal-style="minimal"] .modal-window-dots {
+    display: none !important;
+}
+
+/* ==========================================================================
+   IDENTIDAD DE MARCA DKRIPT — DEGRADADOS LUMINOSOS, CRISTAL VIBRANTE Y NEÓN
+   ========================================================================== */
+
+/* 1. Flujo dinámico del degradado en bordes y acentos (No estático) */
+@keyframes dkript-border-flow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes dkript-glow-pulse {
+    0%, 100% { opacity: 0.55; transform: scale(1); }
+    50% { opacity: 0.95; transform: scale(1.08); }
+}
+
+/* 2. Borde Dinámico con Degradado Principal Dkript: #00D1FF → #007BFF → #7A3CFF */
+.dkript-gradient-border {
+    background: linear-gradient(135deg, #00D1FF 0%, #007BFF 45%, #7A3CFF 80%, #00D1FF 100%);
+    background-size: 300% 300%;
+    animation: dkript-border-flow 6s ease infinite;
+}
+
+/* 3. Aura Luminosa Neón Cian-Violeta (#00D1FF → #20A4FF → #7A3CFF) */
+.dkript-glow-aura {
+    background: radial-gradient(circle, rgba(0, 209, 255, 0.45) 0%, rgba(32, 164, 255, 0.25) 45%, rgba(122, 60, 255, 0.20) 75%, transparent 100%);
+    animation: dkript-glow-pulse 4.5s ease-in-out infinite;
+}
+
+/* 4. Panel Cyber-Glass Traslúcido con Refracción (Oscuro Tecnológico #0A0F1C / #101D35) */
+.dkript-cyber-glass {
+    background: linear-gradient(165deg, rgba(10, 15, 28, 0.92) 0%, rgba(16, 29, 53, 0.88) 50%, rgba(10, 15, 28, 0.94) 100%) !important;
+    backdrop-filter: blur(28px) saturate(210%) contrast(105%) !important;
+    -webkit-backdrop-filter: blur(28px) saturate(210%) contrast(105%) !important;
+    box-shadow: 
+        inset 0 1px 1px 0 rgba(255, 255, 255, 0.25),
+        inset 0 0 20px 0 rgba(0, 209, 255, 0.08) !important;
+}
+
+/* 5. Efecto Metal Tecnológico Dkript (#FFFFFF → #BDEFFF → #00D1FF → #007BFF) */
+.dkript-text-metal {
+    background: linear-gradient(135deg, #FFFFFF 0%, #BDEFFF 35%, #00D1FF 70%, #007BFF 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* ==========================================================================
+   SCROLLBAR DE CATÁLOGO MULTIMEDIA (BRANDING & PARÁMETROS)
+   ========================================================================== */
+.custom-catalog-scrollbar::-webkit-scrollbar {
+    width: 6px;
+}
+.custom-catalog-scrollbar::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.03);
+    border-radius: 9999px;
+}
+.custom-catalog-scrollbar::-webkit-scrollbar-thumb {
+    background: rgba(0, 98, 245, 0.25);
+    border-radius: 9999px;
+}
+.custom-catalog-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 98, 245, 0.5);
+}
+
+/* ==========================================================================
+   PANTALLAS DE ERROR (404, 403, 500, 419, 503) & EFECTOS CINEMÁTICOS DE ESCENA
+   ========================================================================== */
+.font-mono-code {
+    font-family: 'JetBrains Mono', monospace;
+}
+
+/* Resplandor y efectos de iluminación Cyberpunk Dkript */
+.glow-cyan {
+    filter: drop-shadow(0 0 25px rgba(0, 212, 255, 0.45));
+}
+.glow-rose {
+    filter: drop-shadow(0 0 25px rgba(244, 63, 94, 0.45));
+}
+.glow-amber {
+    filter: drop-shadow(0 0 25px rgba(245, 158, 11, 0.45));
+}
+.glow-purple {
+    filter: drop-shadow(0 0 25px rgba(168, 85, 247, 0.45));
+}
+.glow-emerald {
+    filter: drop-shadow(0 0 25px rgba(16, 185, 129, 0.45));
+}
+
+/* Holograma Glitch Scanlines & Integración Video */
+.cyber-grid {
+    background-size: 40px 40px;
+    background-image: 
+        linear-gradient(to right, rgba(0, 212, 255, 0.04) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(0, 212, 255, 0.04) 1px, transparent 1px);
+}
+.drypt-video-blend {
+    mix-blend-mode: screen;
+    -webkit-mask-image: radial-gradient(circle at center, black 60%, transparent 95%);
+    mask-image: radial-gradient(circle at center, black 60%, transparent 95%);
+}
+
+@keyframes float-idle {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-12px) rotate(1deg); }
+}
+.animate-float-idle {
+    animation: float-idle 4.5s ease-in-out infinite;
+}
+
+@keyframes pulse-ring {
+    0% { transform: scale(0.95); opacity: 0.8; }
+    50% { transform: scale(1.05); opacity: 0.3; }
+    100% { transform: scale(0.95); opacity: 0.8; }
+}
+.animate-pulse-ring {
+    animation: pulse-ring 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes laser-sweep {
+    0% { top: 6%; opacity: 0.95; }
+    50% { top: 92%; opacity: 1; }
+    100% { top: 6%; opacity: 0.95; }
+}
+.animate-laser-sweep {
+    animation: laser-sweep 3.5s ease-in-out infinite;
+}
+
+.hud-overlay-container {
+    isolation: isolate;
+    transform-style: preserve-3d;
+}
+.hud-front-layer {
+    transform: translateZ(30px);
+}
+
+/* Luces de Acento Ambiental por Código de Error */
+body[data-error-code="404"] #ambientAura1 { background: radial-gradient(circle, rgba(0,212,255,0.25) 0%, transparent 70%); }
+body[data-error-code="404"] #ambientAura2 { background: radial-gradient(circle, rgba(99,102,241,0.2) 0%, transparent 70%); }
+
+body[data-error-code="403"] #ambientAura1 { background: radial-gradient(circle, rgba(244,63,94,0.3) 0%, transparent 70%); }
+body[data-error-code="403"] #ambientAura2 { background: radial-gradient(circle, rgba(225,29,72,0.2) 0%, transparent 70%); }
+
+body[data-error-code="500"] #ambientAura1 { background: radial-gradient(circle, rgba(245,158,11,0.3) 0%, transparent 70%); }
+body[data-error-code="500"] #ambientAura2 { background: radial-gradient(circle, rgba(239,68,68,0.25) 0%, transparent 70%); }
+
+body[data-error-code="419"] #ambientAura1 { background: radial-gradient(circle, rgba(168,85,247,0.25) 0%, transparent 70%); }
+body[data-error-code="419"] #ambientAura2 { background: radial-gradient(circle, rgba(59,130,246,0.2) 0%, transparent 70%); }
+
+body[data-error-code="503"] #ambientAura1 { background: radial-gradient(circle, rgba(16,185,129,0.25) 0%, transparent 70%); }
+body[data-error-code="503"] #ambientAura2 { background: radial-gradient(circle, rgba(0,212,255,0.2) 0%, transparent 70%); }
+
+/* Efectos Específicos por Escena de Error */
+.scanner-beam {
+    transform-origin: 45% 35%;
+    opacity: 0.7;
+    filter: drop-shadow(0 0 20px #00d4ff);
+    mix-blend-mode: screen;
+}
+.holo-letter {
+    transition: fill 0.2s ease, stroke 0.2s ease, filter 0.2s ease;
+}
+
+.hex-shield {
+    stroke-dasharray: 8 6;
+    animation: rotateShield 20s linear infinite;
+    transform-origin: center;
+}
+@keyframes rotateShield {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.temporal-ring {
+    animation: spinSlow 30s linear infinite;
+    transform-origin: center;
+}
+.temporal-ring-reverse {
+    animation: spinReverse 20s linear infinite;
+    transform-origin: center;
+}
+@keyframes spinSlow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+@keyframes spinReverse {
+    from { transform: rotate(360deg); }
+    to { transform: rotate(0deg); }
+}
+
+/* ==========================================================================
+   SECCIÓN: VERIFICACIÓN TELEFÓNICA Y CÓDIGO OTP (SMS / WHATSAPP)
+   ========================================================================== */
+.otp-input-field {
+    width: 3.25rem;
+    height: 3.75rem;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 800;
+    border-radius: 0.875rem;
+    border: 2px solid #e2e8f0;
+    background-color: #f8fafc;
+    color: #0f172a;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (max-width: 480px) {
+    .otp-input-field {
+        width: 2.6rem;
+        height: 3.2rem;
+        font-size: 1.25rem;
+    }
+}
+
+.otp-input-field:focus {
+    outline: none;
+    border-color: #0062f5;
+    background-color: #ffffff;
+    box-shadow: 0 0 0 4px rgba(0, 98, 245, 0.15), 0 4px 12px rgba(0, 98, 245, 0.1);
+    transform: translateY(-2px);
+}
+
+.otp-input-field.is-filled {
+    border-color: #0062f5;
+    background-color: #f0f7ff;
+    color: #004ecc;
+}
+
+.otp-simulator-badge {
+    background: linear-gradient(135deg, rgba(7, 16, 38, 0.95), rgba(9, 20, 50, 0.98));
+    border: 1px solid rgba(0, 212, 255, 0.4);
+    box-shadow: 0 8px 24px rgba(0, 212, 255, 0.15);
+}
+
+/* ==========================================================================
+   SECCIÓN: AUTENTICACIÓN DE DOS FACTORES (2FA / MFA TOTP RFC 6238)
+   ========================================================================== */
+.two-factor-qr-card {
+    background: #ffffff;
+    border-radius: 1.25rem;
+    padding: 1rem;
+    border: 2px solid #e2e8f0;
+    box-shadow: 0 10px 25px -5px rgba(0, 98, 245, 0.1);
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.two-factor-qr-card:hover {
+    border-color: #00d4ff;
+    box-shadow: 0 12px 30px -5px rgba(0, 212, 255, 0.25);
+}
+
+.recovery-code-chip {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    font-weight: 700;
+    font-size: 0.8125rem;
+    letter-spacing: 0.05em;
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.75rem;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    color: #1e293b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    user-select: all;
+}
+
+.recovery-code-chip:hover {
+    background: #f0f7ff;
+    border-color: #93c5fd;
+    color: #004ecc;
+    transform: translateY(-1px);
+}
+
+/* ==========================================================================
+   SECCIÓN: GESTOR DE SESIONES ACTIVAS Y DISPOSITIVOS CONECTADOS
+   ========================================================================== */
+.session-device-card {
+    background: #ffffff;
+    border-radius: 1rem;
+    padding: 0.875rem 1rem;
+    border: 1px solid #e2e8f0;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+}
+
+.session-device-card:hover {
+    border-color: #cbd5e1;
+    background: #f8fafc;
+    box-shadow: 0 4px 12px -2px rgba(15, 23, 42, 0.05);
+}
+
+.session-device-card.is-current-device {
+    border-color: #86efac;
+    background: #f0fdf4;
+}
+
+.session-device-card.is-current-device:hover {
+    border-color: #4ade80;
+    background: #ecfdf5;
+}
+
+/* ==========================================================================
+   SECCIÓN: PROGRAMADOR AUTOMÁTICO DE RESPALDOS & MONITOR DE TAREAS CRON
+   ========================================================================== */
+.cron-code-box {
+    background: #0f172a;
+    color: #38bdf8;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    font-size: 0.75rem;
+    padding: 0.75rem 1rem;
+    border-radius: 0.75rem;
+    border: 1px solid #1e293b;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    word-break: break-all;
+}
+
+.cron-pulse-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #10b981;
+    display: inline-block;
+    position: relative;
+}
+
+.cron-pulse-dot::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    border-radius: 50%;
+    background-color: #10b981;
+    animation: cronPulse 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+@keyframes cronPulse {
+    0% {
+        transform: scale(0.95);
+        opacity: 0.9;
+    }
+    70% {
+        transform: scale(2.4);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(2.4);
+        opacity: 0;
+    }
+}
+
+.scheduler-task-row {
+    transition: background-color 0.15s ease;
+}
+
+.scheduler-task-row:hover {
+    background-color: #f8fafc;
+}
+
+/* ==========================================================================
+   18. SETTINGS HUB - BARRA SUPERIOR (TOP DOCK) Y PESTAÑAS MODULARES
+   ========================================================================== */
+
+/* Animación de entrada suave para el panel activo */
+@keyframes paramTabFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(6px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.parameter-tab-pane:not(.hidden) {
+    animation: paramTabFadeIn 0.22s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Ocultamiento de barra de desplazamiento en móvil */
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+.no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+/* Barra Superior de Navegación Flotante Fija (Top Dock Settings Hub) */
+.parameter-top-dock,
+.dock-fixed-top {
+    position: fixed;
+    top: 5rem;
+    z-index: 25;
+    overflow: visible !important;
+    background: transparent !important;
+    pointer-events: none;
+}
+
+.parameter-top-dock .parameter-dock-btn,
+.dock-fixed-top .parameter-dock-btn {
+    pointer-events: auto;
+}
+
+/* Contenedor Principal de Paneles con Desplazamiento para Top Dock Fijo */
+.parameter-main-content,
+.dock-content-offset {
+    position: relative;
+    top: 4rem;
+}
+
+/* Botón de Icono del Dock Flotante (Squircle Elevado) */
+.parameter-dock-btn {
+    position: relative;
+    width: 44px;
+    height: 44px;
+    background-color: #ffffff;
+    border: 1px solid rgba(226, 232, 240, 0.9);
+    color: #475569;
+    border-radius: 0.875rem;
+    box-shadow: 0 4px 14px -1px rgba(15, 23, 42, 0.12), 0 2px 5px -1px rgba(15, 23, 42, 0.05);
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+@media (min-width: 640px) {
+    .parameter-dock-btn {
+        width: 48px;
+        height: 48px;
+        border-radius: 1rem;
+    }
+}
+
+.parameter-dock-btn:hover {
+    background-color: #ffffff;
+    border-color: #cbd5e1;
+    color: #0062f5;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 22px -2px rgba(15, 23, 42, 0.18), 0 4px 8px -1px rgba(15, 23, 42, 0.08);
+}
+
+/* Estado Activo del Icono Flotante */
+.parameter-dock-btn.is-active {
+    background-color: #0062f5 !important;
+    border-color: #0062f5 !important;
+    color: #ffffff !important;
+    box-shadow: 0 8px 22px -2px rgba(0, 98, 245, 0.45), 0 3px 8px -1px rgba(0, 98, 245, 0.25) !important;
+    transform: translateY(-2px);
+}
+
+.parameter-dock-btn.is-active i {
+    color: #ffffff !important;
+}
+
+.parameter-dock-btn.is-active:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 26px -2px rgba(0, 98, 245, 0.52), 0 4px 10px -1px rgba(0, 98, 245, 0.30) !important;
+}
+
+/* Tooltip Corporativo Flotante (Superpuesto al div inferior sin recortes) */
+.parameter-dock-tooltip {
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%) translateY(4px);
+    opacity: 0;
+    pointer-events: none;
+    z-index: 100;
+    background-color: #071026;
+    border: 1px solid #1e293b;
+    padding: 7px 14px;
+    border-radius: 12px;
+    box-shadow: 0 14px 30px -4px rgba(0, 0, 0, 0.55), 0 4px 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    white-space: nowrap;
+    transition: opacity 0.18s cubic-bezier(0.16, 1, 0.3, 1), transform 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.parameter-dock-tooltip::before {
+    content: '';
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent #071026 transparent;
+}
+
+/* Alineación segura para el primer botón (evita desborde a la izquierda) */
+.parameter-dock-btn:first-child .parameter-dock-tooltip {
+    left: 0;
+    transform: translateY(4px);
+}
+.parameter-dock-btn:first-child .parameter-dock-tooltip::before {
+    left: 22px;
+}
+
+/* Mostrar Tooltip exclusivamente al hacer hover en dispositivos con cursor (Desktop) */
+@media (hover: hover) and (pointer: fine) {
+    .parameter-dock-btn:hover .parameter-dock-tooltip {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+    .parameter-dock-btn:first-child:hover .parameter-dock-tooltip {
+        transform: translateY(0);
+    }
+}
+
+/* Ocultar tooltip en dispositivos táctiles para evitar estados pegajosos al tocar */
+@media (hover: none) {
+    .parameter-dock-tooltip {
+        display: none !important;
+    }
+}
+
+/* Ocultar botón nativo de revelación de contraseña en Edge/IE para inputs de contraseña */
+input[type="password"]::-ms-reveal,
+input[type="password"]::-ms-clear {
+    display: none !important;
+}
+
+/* Labels discretos en el contorno del input (Floating Outline Labels) */
+.contour-label {
+    position: absolute;
+    top: -0.5rem;
+    left: 0.75rem;
+    padding: 0 0.375rem;
+    font-size: 0.6875rem;
+    font-weight: 500;
+    line-height: 1rem;
+    color: #64748b;
+    background-color: #f8fafc;
+    border-radius: 0.25rem;
+    z-index: 20;
+    pointer-events: none;
+    transition: all 0.15s ease;
+}
+
+body[data-modal-style="glassmorphism"] .contour-label {
+    background-color: #071026 !important;
+    color: #bae6fd !important;
+    border: 1px solid rgba(0, 212, 255, 0.25) !important;
+}
+
+body[data-modal-style="window"] .contour-label {
+    background-color: #071026 !important;
+    color: #94a3b8 !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+body[data-modal-style="minimal"] .contour-label {
+    background-color: #f0f4f9 !important;
+    color: #64748b !important;
+}
+
+/* Botón de acordeón interactivo estilo input integrado (.input-like-trigger) */
+.input-like-trigger {
+    background-color: #ffffff;
+    border-color: #cbd5e1;
+    color: #334155;
+    transition: all 0.15s ease;
+}
+.input-like-trigger:hover {
+    background-color: #f8fafc;
+    border-color: #94a3b8;
+}
+
+body[data-modal-style="glassmorphism"] .input-like-trigger {
+    background-color: rgba(11, 23, 57, 0.75) !important;
+    color: #ffffff !important;
+    border: 1px solid rgba(0, 212, 255, 0.35) !important;
+    backdrop-filter: blur(8px) !important;
+    -webkit-backdrop-filter: blur(8px) !important;
+}
+body[data-modal-style="glassmorphism"] .input-like-trigger span {
+    color: #bae6fd !important;
+}
+body[data-modal-style="glassmorphism"] .input-like-trigger:hover {
+    border-color: #00d4ff !important;
+    box-shadow: 0 0 15px rgba(0, 212, 255, 0.35) !important;
+}
+
+body[data-modal-style="window"] .input-like-trigger {
+    background-color: #071026 !important;
+    color: #f8fafc !important;
+    border: 1px solid #334155 !important;
+}
+body[data-modal-style="window"] .input-like-trigger:hover {
+    border-color: #0062f5 !important;
+}
+
+body[data-modal-style="minimal"] .input-like-trigger {
+    background-color: #f0f4f9 !important;
+    color: #0f172a !important;
+    border: 1px solid rgba(255, 255, 255, 0.8) !important;
+    box-shadow: inset 3px 3px 6px #d1d9e6, inset -3px -3px 6px #ffffff !important;
+}
+
+/* Sección de cambio de contraseña sin fondos ni contornos residuales */
+#sectionPasswordChange {
+    background: transparent !important;
+    background-color: transparent !important;
+    border: none !important;
+    border-top: none !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+}
+
+/* ==========================================================================
+   Validador Dinámico de Contraseña en Tiempo Real (Fase 44)
+   ========================================================================== */
+.pwd-checklist-container {
+    transition: all 0.2s ease-in-out;
+}
+
+.pwd-rule-item {
+    transition: color 0.15s ease, opacity 0.15s ease;
+}
+
+.pwd-rule-item.is-valid .pwd-rule-text {
+    color: #059669 !important;
+    font-weight: 600;
+}
+
+.pwd-rule-item.is-invalid .pwd-rule-text {
+    color: #64748b;
+}
+
+/* Adaptación Multi-Tema */
+body[data-modal-style="glassmorphism"] .pwd-checklist-container {
+    background: rgba(7, 16, 38, 0.5) !important;
+    border-color: rgba(0, 212, 255, 0.2) !important;
+}
+
+body[data-modal-style="glassmorphism"] .pwd-checklist-title {
+    color: #bae6fd !important;
+}
+
+body[data-modal-style="glassmorphism"] .pwd-rule-item.is-valid .pwd-rule-text {
+    color: #34d399 !important;
+}
+
+body[data-modal-style="glassmorphism"] .pwd-rule-item.is-invalid .pwd-rule-text {
+    color: #94a3b8 !important;
+}
+
+body[data-modal-style="window"] .pwd-checklist-container {
+    background: #071026 !important;
+    border-color: #334155 !important;
+}
+
+body[data-modal-style="window"] .pwd-checklist-title {
+    color: #f8fafc !important;
+}
+
+body[data-modal-style="window"] .pwd-rule-item.is-valid .pwd-rule-text {
+    color: #4ade80 !important;
+}
+
+body[data-modal-style="window"] .pwd-rule-item.is-invalid .pwd-rule-text {
+    color: #94a3b8 !important;
+}
+
+body[data-modal-style="minimal"] .pwd-checklist-container {
+    background: #f1f5f9 !important;
+    border-color: #e2e8f0 !important;
+    box-shadow: inset 2px 2px 5px #d1d9e6, inset -2px -2px 5px #ffffff !important;
+}
+
+body[data-modal-style="minimal"] .pwd-checklist-title {
+    color: #1e293b !important;
+}
+
+body[data-modal-style="minimal"] .pwd-rule-item.is-valid .pwd-rule-text {
+    color: #047857 !important;
+}
+
+body[data-modal-style="minimal"] .pwd-rule-item.is-invalid .pwd-rule-text {
+    color: #64748b !important;
+}
+
+/* ==========================================================================
+   Contenedor Reactivo de Autorización de Contraseña Actual (Fase 45)
+   ========================================================================== */
+#containerCurrentPassword:not(.hidden) {
+    animation: dkript-current-pwd-appear 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes dkript-current-pwd-appear {
+    0% {
+        opacity: 0;
+        transform: translateY(-6px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
